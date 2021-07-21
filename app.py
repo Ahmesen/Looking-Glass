@@ -50,7 +50,7 @@ def pingServerSide(ip,op):
     if result.returncode == 1:
         return "No response from Host."
     result = result.stdout.decode("utf-8")
-    return render_template("looking-glass/serverside.html", result=result, dest=dest, cmd=cmd)
+    return render_template("serverside.html", result=result, dest=dest, cmd=cmd)
 
 @app.route("/wait")
 def waitpage():
