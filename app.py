@@ -46,10 +46,10 @@ def pingServerSide(ip,op):
         return render_template("looking-glass/nice-try.html"),500
     # operation = ('ping -c 4'+' '+dest)
     operation = (root+' '+cmd+' '+' '+dest)
-    result = subprocess.check_output(operation, shell=True)
+    result = subprocess.run(operation, shell=True, check=True, stdout=subprocess.PIPE)
     if result.returncode == 1:
         return "No response from Host."
-    result = result.decode("utf-8")
+    result = result.stdout.decode("utf-8")
     return render_template("looking-glass/serverside.html", result=result, dest=dest, cmd=cmd)
 
 @app.route("/wait")
