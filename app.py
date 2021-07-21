@@ -11,12 +11,6 @@ app = Flask(__name__)
 def index():
     return redirect("https://zt-e.tech")
 
-@app.route("/looking-glass")
-def lookingglass():
-    userloc = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)  
-    print(userloc)
-    return render_template("looking-glass/looking-glass.html", userip=userloc)
-
 @app.route("/server/dls/<ip>/<op>")
 def pingServerSide(ip,op):
     # userip = request.environ['REMOTE_ADDR']
@@ -43,7 +37,7 @@ def pingServerSide(ip,op):
     translation_table = {ord(c): None for c in chars_to_remove }
     destsan = dest.translate(translation_table)
     if(destsan != dest):
-        return render_template("looking-glass/nice-try.html"),500
+        return render_template("nice-try.html"),500
     # operation = ('ping -c 4'+' '+dest)
     operation = (root+' '+cmd+' '+' '+dest)
     result = subprocess.run(operation, shell=True, check=True, stdout=subprocess.PIPE)
@@ -54,4 +48,4 @@ def pingServerSide(ip,op):
 
 @app.route("/wait")
 def waitpage():
-    return render_template("looking-glass/wait.html")
+    return render_template("wait.html")
