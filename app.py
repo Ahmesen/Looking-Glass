@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return redirect("https://zt-e.tech")
+    return redirect(os.environ.get('MAIN_PAGE'))
 
 @app.route("/server/dls/<ip>/<op>")
 def pingServerSide(ip,op):
