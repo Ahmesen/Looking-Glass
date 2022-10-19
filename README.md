@@ -7,14 +7,14 @@ Run ``start.sh`` after installing gunicorn and installing dependencies.
 
 ### Usage
 #### Looking-Glass uses URL paramaters in order to process the request
-###### The paramaters are defined here, we'll use `https://lhr.zt-e.tech` as our example domain. (This is currently active, so you can try this out for yourself!)
+###### The paramaters are defined here, we'll use `https://lhr.cachical.com` as our example domain. (This is currently active, so you can try this out for yourself!)
 
 ```
-https://lhr.zt-e.tech/server/dls/ip=<IP or Hostname here>/op=<operation code, defined below>
+https://lhr.cachical.com/server/dls/ip=<IP or Hostname here>/op=<operation code, defined below>
 
 Example:
 
-https://lhr.zt-e.tech/server/dls/ip=1.1.1.1/op=1
+https://lhr.cachical.com/server/dls/ip=1.1.1.1/op=1
 
 This will perform 4 pings to cloudflare's 1.1.1.1 DNS service.
 ```
