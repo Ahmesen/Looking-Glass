@@ -10,6 +10,9 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return redirect(os.environ.get('MAIN_PAGE'))
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),'ahmesen.png', mimetype='image/png')
 
 @app.route("/server/dls/<ip>/<op>")
 def pingServerSide(ip,op):
